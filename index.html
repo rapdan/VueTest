@@ -53,7 +53,11 @@
     <div class="circle" @click="isActive = !isActive" :class="{'red': isActive}"></div>
     <div class="circle" :class="color"></div>
     <input type="text" v-model="color">
-    <div class="circle" :class="getCssClass"></div>
+    <div class="circle" :class="getCssClass"></div><hr>
+    <div class="circle" :style="{'background': color, 'height': height + 'px'}"></div>
+    <input type="text" v-model="height">
+    <div class="circle" :style="circleClass"></div>
+    <div class="circle" :style="[circleClass, {'width': height + 'px'}]"></div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> 
@@ -75,13 +79,20 @@
                 inputValue: 'initial value',
                 inputValue2: 'z modyfikatorem lazy, zmiana następuje po zdjęciu z fokusa',
                 isActive: false,
-                color: ''
+                color: '',
+                height: 100
             },
             computed: {
                 getCssClass: function() {
                     return {
                         'red': this.isActive,
                         'green': !this.isActive
+                    }
+                },
+                circleClass: function() {
+                    return {
+                        'background': this.color, 
+                        'height': this.height + 'px'
                     }
                 }
             },
