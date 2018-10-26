@@ -63,8 +63,20 @@
     <h2 v-if="!isVisible">This is second fraze.</h2>
     <button @click="isVisible=!isVisible">Toggle</button>
     <h2 v-if="isVisible">Hoho ho. other fraze with v-else</h2>
-    <h2 v-else>Hoho ho next fraze v-else.</h2>
-    
+    <h2 v-else>Hoho ho next fraze v-else.</h2><hr>
+    <h3 v-if="type==='a'">A</h3>
+    <h3 v-else-if="type==='b'">B</h3>
+    <h3 v-else-if="type==='c'">C</h3>
+    <h3 v-else>not match</h3>
+    <input type="text" v-model="type">
+    <template v-if="isVisible">    
+        <h3>Title number one</h3>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Amet, repellat!</p>
+    </template> 
+    <template v-else>    
+        <h3>Title number two</h3>
+        <p>Lorem ipsum, dolor sit amet consectetur. Asperiores, odit.</p>
+    </template>
     
     </div>
 
@@ -89,7 +101,8 @@
                 isActive: false,
                 color: '',
                 height: 100,
-                isVisible: true
+                isVisible: true,
+                type: 'a'
             },
             computed: {
                 getCssClass: function() {
