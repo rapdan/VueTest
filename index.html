@@ -58,6 +58,14 @@
     <input type="text" v-model="height">
     <div class="circle" :style="circleClass"></div>
     <div class="circle" :style="[circleClass, {'width': height + 'px'}]"></div>
+    <hr>
+    <h2 v-if="isVisible">This is first fraze.</h2>
+    <h2 v-if="!isVisible">This is second fraze.</h2>
+    <button @click="isVisible=!isVisible">Toggle</button>
+    <h2 v-if="isVisible">Hoho ho. other fraze with v-else</h2>
+    <h2 v-else>Hoho ho next fraze v-else.</h2>
+    
+    
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> 
@@ -80,7 +88,8 @@
                 inputValue2: 'z modyfikatorem lazy, zmiana następuje po zdjęciu z fokusa',
                 isActive: false,
                 color: '',
-                height: 100
+                height: 100,
+                isVisible: true
             },
             computed: {
                 getCssClass: function() {
