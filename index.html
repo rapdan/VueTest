@@ -80,6 +80,16 @@
     <hr>
     <h2 v-show="isVisible">This is first fraze.</h2>
     <h2 v-show="!isVisible">This is second fraze.</h2>
+    <ul>
+        <li v-for="(person, index) in people">{{ index + 1 }} {{person}}</li>
+    </ul>
+    <ol>
+        <li v-for="person of people2">{{person.name}} - <b>{{person.age}}</b></li>
+    </ol>
+    <ul>
+        <li v-for="numb in 5">{{numb}}</li>
+        <li v-for="(value, key, index) in person">{{index+1}}. {{key}}: {{value}}</li>
+    </ul>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> 
@@ -104,7 +114,10 @@
                 color: '',
                 height: 100,
                 isVisible: true,
-                type: 'a'
+                type: 'a',
+                people: ['Fanko','Laris', 'Setuh', 'Kouha'],
+                people2: [{name: 'Fanko', age: 34}, {name: 'Laris', age: 32}, {name: 'Setuh', age: 25}, {name: 'Kouhao', age: 24}],
+                person: {name: 'Kokodi', age: 43, job: 'Programer', maried: true}
             },
             computed: {
                 getCssClass: function() {
