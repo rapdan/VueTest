@@ -90,6 +90,9 @@
         <li v-for="numb in 5">{{numb}}</li>
         <li v-for="(value, key, index) in person">{{index+1}}. {{key}}: {{value}}</li>
     </ul>
+    <h2 ref="heading">{{title}}</h2>
+    <button @click="changeTitle">Change the title</button>
+    <hr ref="horizLine" >
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> 
@@ -117,7 +120,8 @@
                 type: 'a',
                 people: ['Fanko','Laris', 'Setuh', 'Kouha'],
                 people2: [{name: 'Fanko', age: 34}, {name: 'Laris', age: 32}, {name: 'Setuh', age: 25}, {name: 'Kouhao', age: 24}],
-                person: {name: 'Kokodi', age: 43, job: 'Programer', maried: true}
+                person: {name: 'Kokodi', age: 43, job: 'Programer', maried: true},
+                title: 'I am Vue!'
             },
             computed: {
                 getCssClass: function() {
@@ -162,6 +166,12 @@
                 },
                 alertValue: function(event){
                     alert(event.target.value)
+                },
+                changeTitle: function(){
+                    this.title="New title!",
+                    this.$refs.heading.style.color = "darkred",
+                    this.$refs.horizLine.size = 10,
+                    console.log(this.$refs)
                 }
 			}
         })
