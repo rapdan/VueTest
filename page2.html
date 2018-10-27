@@ -8,17 +8,38 @@
 </head>
 <body>
     <div id="app">
+        <my-counter></my-counter>
+        <my-counter></my-counter>
+        <my-counter></my-counter>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> 
     <script>
-        var vue = new Vue({
-            data: {
-                title: 'Other method to connect with Vue'
+        Vue.component('my-counter', {
+            template: `<div style="border: 1px solid grey; padding: 10px; background: lightblue"><h2>Counter: {{counter}}</h2>
+            <button @click="add">+1</button></div> `,
+            data: function(){
+                return {
+                    counter: 0
+                }
             },
-            template:'<div><h2>{{title}}</h2><p>W template musi byc umieszczony tylko jeden div. Pamietaj o vue.$mount("#app")</p></div>'
+            methods: {
+                add: function(){
+                    this.counter++
+                }
+            }
         });
-        vue.$mount('#app')
+        new Vue({
+            el: "#app"
+        });
+
+        // var vue = new Vue({
+        //     data: {
+        //         title: 'Other method to connect with Vue'
+        //     },
+        //     template:'<div><h2>{{title}}</h2><p>W template musi byc umieszczony tylko jeden div. Pamietaj o vue.$mount("#app")</p></div>'
+        // });
+        // vue.$mount('#app')
     </script>
 </body>
 </html>
