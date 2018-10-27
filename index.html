@@ -38,7 +38,7 @@
     <button v-on:click="add(2, 'Zmieniono o 2', $event)">Dodaj 2</button>
     <button v-on:click="add(4, 'Zmieiono o 4', $event)">Dodaj 4</button>
     <hr>
-    <a href="http://google.com" targ	et="_blank" v-on:click="clickOnGoogle">Link do Google zmieniony za pomoca javascriptu preventDefault</a><hr>
+    <a href="http://google.com" target="_blank" v-on:click="clickOnGoogle">Link do Google zmieniony za pomoca javascriptu preventDefault</a><hr>
     <a href="http://google.com" target="_blank" v-on:click.prevent="">Link do Google zmieniony za pomoca Vue prevent</a>
     
     <h2 v-on:mousemove="showXy">x:{{ x }} / y:{{ y }}
@@ -77,7 +77,9 @@
         <h3>Title number two</h3>
         <p>Lorem ipsum, dolor sit amet consectetur. Asperiores, odit.</p>
     </template>
-    
+    <hr>
+    <h2 v-show="isVisible">This is first fraze.</h2>
+    <h2 v-show="!isVisible">This is second fraze.</h2>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> 
