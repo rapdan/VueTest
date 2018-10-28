@@ -10,12 +10,15 @@
     <div id="app">
         <my-counter></my-counter>
         <my-counter></my-counter>
-        <my-counter></my-counter>
     </div>
-
+    <hr>
+    <div id="app2">
+        <my-counter></my-counter>
+        
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> 
     <script>
-        Vue.component('my-counter', {
+        var component = {
             template: `<div style="border: 1px solid grey; padding: 10px; background: lightblue"><h2>Counter: {{counter}}</h2>
             <button @click="add">+1</button></div> `,
             data: function(){
@@ -28,11 +31,20 @@
                     this.counter++
                 }
             }
-        });
+        };
         new Vue({
-            el: "#app"
+            el: "#app",
+            components: {
+                'my-counter': component
+            }
         });
-
+        
+        new Vue({
+            el: "#app2",
+            components: {
+                myCounter: component
+            }
+        })
         // var vue = new Vue({
         //     data: {
         //         title: 'Other method to connect with Vue'
